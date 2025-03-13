@@ -167,11 +167,60 @@ const OrderCounter = mongoose.model('OrderCounter', orderCounterSchema, 'counter
 const orderSchema = new mongoose.Schema({
   _id: String, // Custom order ID in format "1/2024-25"
   measurements: {
-    length: Number,
-    bottom: Number,
-    kneeRound: Number,
-    thighRound: Number,
-    waist: Number,
+    blouse: {
+      length: Number,
+      chest: Number,
+      waist: Number,
+      shoulder: Number,
+      front_neck_length: Number,
+      back_neck_length: Number,
+      tux_point: Number,
+      sleeve_length: Number,
+      sleeve_round: Number,
+      upper_sleeve_round: Number,
+      armhole: Number,
+    },
+    indowestern: {
+      length: Number,
+      waist_length: Number,
+      chest: Number,
+      waist: Number,
+      hips: Number,
+      shoulder: Number,
+      front_neck: Number,
+      back_neck: Number,
+      sleeve_length: Number,
+      sleeve_round: Number,
+      armhole: Number,
+    },
+    kurta: {
+      length: Number,
+      chest: Number,
+      shoulder: Number,
+      sleeve_length: Number,
+      sleeve_round: Number,
+      waist: Number,
+      armhole: Number,
+      hips: Number,
+      front_neck: Number,
+      back_neck: Number,
+    },
+    pant: {
+      length: Number,
+      bottom: Number,
+      kneeRound: Number,
+      thighRound: Number,
+      waist: Number,
+    },
+    shirt: {
+      length: Number,
+      chest: Number,
+      shoulder: Number,
+      sleeve_length: Number,
+      sleeve_round: Number,
+      waist: Number,
+      armhole: Number,
+    }
   },
   description: String,
   totalAmount: Number,
@@ -192,6 +241,7 @@ const orderSchema = new mongoose.Schema({
   customerId: { type: String, required: true },
   isUrgent: { type: Boolean, default: false }
 }, { timestamps: true });
+
 
 const Order = mongoose.model('Order', orderSchema, 'orders');
 
