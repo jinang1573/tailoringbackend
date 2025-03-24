@@ -287,18 +287,11 @@ app.get('/api/orders/:id', async (req, res) => {
 
 // Update an order (only updating status here)
 // Update an order
+// Update an order
 app.put('/api/orders/:id', async (req, res) => {
   const orderId = req.params.id;
-  const { status, measurements } = req.body; // Extract status and measurements from request body
+  const updateData = req.body; // Use all fields sent in the request body
   try {
-    const updateData = {};
-    if (status !== undefined) {
-      updateData.status = status;
-    }
-    if (measurements !== undefined) {
-      updateData.measurements = measurements;
-    }
-
     const updatedOrder = await Order.findByIdAndUpdate(
       orderId,
       updateData,
