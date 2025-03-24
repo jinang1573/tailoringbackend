@@ -188,6 +188,7 @@ const orderSchema = new mongoose.Schema({
   description: String,
   totalAmount: Number,
   advancePaid: Number,
+  balanceDue: Number,
   paymentMethod: String,
   isEmbroidery: Boolean,
   embroidery: {
