@@ -32,20 +32,16 @@ const customerCounterSchema = new mongoose.Schema({
 const CustomerCounter = mongoose.model("CustomerCounter", customerCounterSchema);
 
 // Customer schema and model (using custom customerId)
+// Modified customer schema
 const customerSchema = new mongoose.Schema({
-  customerId: { type: String, unique: true }, // e.g., A001, A002, ...
+  customerId: { type: String, unique: true },
   fullName: { type: String, required: true },
   gender: { type: String, required: true },
   phoneNumber: { type: String, required: true },
   gmail: { type: String },
   dob: { type: Date, required: true },
   address: { type: String, required: true },
-  waist: { type: Number, required: true },
-  chest: { type: Number, required: true },
-  shoulders: { type: Number, required: true },
-  hips: { type: Number, required: true },
-  length: { type: Number, required: true },
-  armhole: { type: Number, required: true },
+  // Removed all measurement fields
 });
 const Customer = mongoose.model('Customer', customerSchema, 'customer');
 
